@@ -5,7 +5,9 @@
   "main": "server/index.js",
   "scripts": {
     "start": "webpack && node server",
-    "dev": "nodemon --watch server & webpack --watch"
+    "dev": "nodemon --watch server & webpack --watch",
+    "knex": "knex --knexfile ./server/db/knexfile.js",
+    "seed": "yarn knex seed:run"
   },
   "author": "Julia",
   "license": "ISC",
@@ -26,10 +28,12 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "sqlite3": "^3.1.9"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "knex": "^0.14.4"
   }
 }
