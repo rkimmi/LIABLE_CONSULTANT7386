@@ -21219,22 +21219,111 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Username = __webpack_require__(71);
+
+var _Username2 = _interopRequireDefault(_Username);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app-container' },
-    _react2.default.createElement(
-      'p',
-      null,
-      'Hiya, good luck!'
-    ),
-    _react2.default.createElement('iframe', { src: 'https://giphy.com/embed/yoJC2AkZpy7PffDToY', width: '480', height: '359', frameBorder: '0', className: 'giphy-embed', allowFullScreen: true })
+    _react2.default.createElement(_Username2.default, null)
   );
 };
 
 exports.default = App;
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _username = __webpack_require__(72);
+
+var _username2 = _interopRequireDefault(_username);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Username = function (_React$Component) {
+    _inherits(Username, _React$Component);
+
+    function Username(props) {
+        _classCallCheck(this, Username);
+
+        var _this = _possibleConstructorReturn(this, (Username.__proto__ || Object.getPrototypeOf(Username)).call(this, props));
+
+        _this.state = {
+            username: ''
+        };
+        _this.makeUsername = _this.makeUsername.bind(_this);
+        return _this;
+    }
+
+    _createClass(Username, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.makeUsername();
+        }
+    }, {
+        key: 'makeUsername',
+        value: function makeUsername() {
+            var firstWord = _username2.default.first[Math.floor(Math.random() * _username2.default.first.length)];
+            var secondWord = _username2.default.second[Math.floor(Math.random() * _username2.default.second.length)];
+            var min = 1000;
+            var max = 10000;
+            var numeric = Number([Math.floor(Math.random() * (max - min) + min)]);
+            var concatenate = firstWord + '_' + secondWord + numeric;
+
+            this.setState({
+                username: concatenate
+            });
+            console.log(concatenate);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    this.state.username
+                )
+            );
+        }
+    }]);
+
+    return Username;
+}(_react2.default.Component);
+
+exports.default = Username;
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+module.exports = {"first":["preemtive","organisational","limited","passive","hostile","professional","fringe","revised","fractional","special","voluntary","withdrawn","counterfeit","fraudulent","fiscal","cumulative","corporate","liable","estranged","falliable","quantative","systematic","systemic","stationary","rising","dormant","authorised","compliant","controlled"],"second":["liability","francise","agreement","interest","equity","dividend","distribution","indicator","acquisition","target","certificate","certificate","regulation","climate","manager","litigation","officer","promoter","subscriber","process","holder","email","authority","metric","analysis","resolution","stock","constitute","contract","creditor","merger"]}
 
 /***/ })
 /******/ ]);
