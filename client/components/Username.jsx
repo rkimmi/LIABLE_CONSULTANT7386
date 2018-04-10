@@ -1,11 +1,12 @@
 import React from 'react'
 
 import usernameData from './username.json'
+
 class Username extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: ''
+                username: '',
         }
         this.makeUsername = this.makeUsername.bind(this)
     }
@@ -23,16 +24,17 @@ class Username extends React.Component {
         const concatenate = firstWord + '_' + secondWord + numeric
 
         this.setState({
-            username: concatenate
+                username: concatenate
         })
         console.log(concatenate)
     }
 
+
     render () {
         return (
             <div>
-                <h1>{this.state.username}</h1>
-
+                <h1>{this.state.username} </h1>
+                {/* <h1>{this.state.user.value}</h1> */}
             </div>
 
         )
