@@ -1,8 +1,11 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import usernameData from './username.json'
 
-class Username extends React.Component {
+import {getUsers} from '../actions/users'
+
+class User extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -11,6 +14,10 @@ class Username extends React.Component {
         this.makeUsername = this.makeUsername.bind(this)
     }
 
+    componentDidMount () {
+       this.props.dispatch(getUsers())
+    }
+ 
     componentWillMount () {
         this.makeUsername ()
     }
@@ -22,24 +29,27 @@ class Username extends React.Component {
         const max = 10000
         const numeric = Number([Math.floor(Math.random() * (max - min) + min)])
         const concatenate = firstWord + '_' + secondWord + numeric
-
         this.setState({
                 username: concatenate
         })
-        console.log(concatenate)
     }
 
 
     render () {
+        const user = this.props.users
         return (
             <div>
-                <h1>{this.state.username} </h1>
-                {/* <h1>{this.state.user.value}</h1> */}
+                 {this.props.users && <h1> {this.props.users[0].username} </h1>}
             </div>
 
         )
     }
 }
 
-
-export default Username
+const mapStateToProps = (state) => {
+    return {
+      users: state.users
+    }
+  }
+  
+export default connect(mapStateToProps)(User)

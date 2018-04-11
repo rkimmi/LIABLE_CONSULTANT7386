@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Username from './Username'
+import User from './User'
 import UserValue from './UserValue'
 
 
 const App = () => (
   <div className='app-container'>
-    <Username />
+    <User />
     <UserValue />
   </div>
 )

@@ -5,7 +5,7 @@ exports.up = function (knex, Promise) {
                 table.increments('id').primary()
                 table.integer('user_id').references('users.id')
                 table.string('message')
-                table.integer('timestamp')
+                table.timestamp('timestamp')
             }) 
         }
     })

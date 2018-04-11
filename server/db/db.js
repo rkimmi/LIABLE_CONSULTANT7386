@@ -7,8 +7,8 @@ module.exports = {
 }
 
 function getUsers () {
-    const conn = testConn || connection
+    const conn = connection
     return conn('users')
-    .join('messages', 'user_id', 'user.id')
+    .join('messages', 'user_id', 'users.id')
     .select()
 }
