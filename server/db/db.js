@@ -3,13 +3,12 @@ const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-
+    getUsers
 }
 
-function getUser () {
-
+function getUsers () {
+    const conn = testConn || connection
+    return conn('users')
+    .join('messages', 'user_id', 'user.id')
+    .select()
 }
-
-// get username ?
-
-// 

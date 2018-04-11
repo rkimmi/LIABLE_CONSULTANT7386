@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js knex migrate:latest
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js knex seed:run
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -5027,7 +5027,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c knex --knexfile ./server/db/knexfile.js migrate:latest
+  Arguments: -c knex --knexfile ./server/db/knexfile.js seed:run
   Directory: /Users/kimmi/Documents/Workspace/LIABLE_CONSULTANT7386
   Output:
   
