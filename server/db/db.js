@@ -14,11 +14,11 @@ function getUsers () {
     .select()
 }
 
-function addUser (userData) {
+function addUser (userData, connection) {
     const conn = connection
     return conn('users')
     .insert({
-        username: userData.username,
+        username: userData.username
         // value: req.body.value,
         // icon: req.body.icon
   })

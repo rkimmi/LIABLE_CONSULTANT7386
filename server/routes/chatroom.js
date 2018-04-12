@@ -23,5 +23,5 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     db.addUser(req.body)
     .then(() =>
-     res.redirect('/'))
+     res.send('/'))
 })
