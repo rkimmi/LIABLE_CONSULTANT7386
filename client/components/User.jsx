@@ -40,6 +40,8 @@ class User extends React.Component {
         return (
             <div>
                  {this.props.users && <h1> {this.props.users[0].username} </h1>}
+                 {this.props.users && <img src={this.props.users[1].icon} />}
+                 <h1>{this.state.username}</h1>
             </div>
 
         )
