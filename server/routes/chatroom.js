@@ -22,6 +22,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     db.addUser(req.body)
-    .then(() =>
-     res.send('/'))
+    .then(() => {
+      res.status(202).end()
+    })
+    .catch(() => {
+      res.status(400).send({
+        errorType: 'DATABASE_ERROR'
+      })
+    })
 })

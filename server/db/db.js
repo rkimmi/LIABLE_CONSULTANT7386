@@ -7,14 +7,14 @@ module.exports = {
     addUser
 }
 
-function getUsers () {
+function getUsers () { // rename, gets everything
     const conn = connection
     return conn('users')
     .join('messages', 'user_id', 'users.id')
     .select()
 }
 
-function addUser (userData, connection) {
+function addUser (userData) {
     const conn = connection
     return conn('users')
     .insert({
