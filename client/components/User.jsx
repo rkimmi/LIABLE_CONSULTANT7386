@@ -49,8 +49,8 @@ class User extends React.Component {
             <div>
                 <form method='post'
                     onSubmit={event => this.handleSubmit(event)}>
-                    <button type='submit'>Enter chatroom</button>
                     <input type='hidden' value={this.state.username} />
+                    <button type='submit'>Enter chatroom</button>
                     {/* {this.props.users && <h1> {this.props.users[0].username} </h1>}
                     {this.props.users && <img src={this.props.users[1].icon} />} */}
                     <h1>{this.state.username}</h1>
