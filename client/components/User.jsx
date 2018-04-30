@@ -28,6 +28,7 @@ class User extends React.Component {
             .send({
                 username: this.state.username
             })
+            .end()
     }
 
     makeUsername() {
@@ -47,14 +48,13 @@ class User extends React.Component {
         const user = this.props.users
         return (
             <div>
-                <form method='post'
-                    onSubmit={event => this.handleSubmit(event)}>
+                <form>
                     <input type='hidden' value={this.state.username} />
-                    <button type='submit'>Enter chatroom</button>
+                    <button type='submit' onClick={(event) => this.handleSubmit(event)}>Enter chatroom</button>
                     {/* {this.props.users && <h1> {this.props.users[0].username} </h1>}
                     {this.props.users && <img src={this.props.users[1].icon} />} */}
-                    <h1>{this.state.username}</h1>
                 </form>
+                <h1>{this.state.username}</h1>
             </div>
         )
     }

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js dve
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js dbug
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -23,7 +23,8 @@ npm manifest:
       "start": "webpack && node server",
       "dev": "nodemon --watch server & webpack --watch",
       "knex": "knex --knexfile ./server/db/knexfile.js",
-      "seed": "yarn knex seed:run"
+      "seed": "yarn knex seed:run",
+      "debug": "nodemon index"
     },
     "author": "Julia",
     "license": "ISC",
@@ -38,7 +39,7 @@ npm manifest:
       "babel-loader": "^7.1.2",
       "babel-preset-env": "^1.6.1",
       "babel-preset-react": "^6.24.1",
-      "nodemon": "^1.14.12",
+      "nodemon": "^1.17.3",
       "react": "^16.2.0",
       "react-dom": "^16.2.0",
       "react-redux": "^5.0.7",
@@ -3271,9 +3272,9 @@ Lockfile:
       tar "^2.2.1"
       tar-pack "^3.4.0"
   
-  nodemon@^1.14.12:
-    version "1.17.2"
-    resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.2.tgz#17c0062629610e03dd01241c576f1c4068da9fdd"
+  nodemon@^1.17.3:
+    version "1.17.3"
+    resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.3.tgz#3b0bbc2ee05ccb43b1aef15ba05c63c7bc9b8530"
     dependencies:
       chokidar "^2.0.2"
       debug "^3.1.0"
@@ -5061,7 +5062,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dve" not found.
+  Error: Command "dbug" not found. Did you mean "debug"?
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)
