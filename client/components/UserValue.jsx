@@ -1,5 +1,7 @@
 import React from 'react'
 
+import _ from 'lodash'
+
 class UserValue extends React.Component {
     constructor(props) {
         super(props)
@@ -14,7 +16,7 @@ class UserValue extends React.Component {
     }
 
     makeUserValue () {
-        const userValue = Number([Math.floor(Math.random() * (10 - 1) + 1)])
+        const userValue = Number(_.random(1, 10))
         console.log(userValue)
         this.setState({
                 value: userValue
