@@ -5,6 +5,7 @@ An online chat room environment which speculates on notions of simulated alterna
 ##### ‘authorised_climate7436’
 ##### ‘preemptive_metrics2197’
 
+
 A virtual world fueled by a fast-paced economic cycle, whereby users are infinite and disposable.
 
 The user’s assigned value — displayed in a starchart-like system — does not hold any weight but rather acts as a counterfeit; it cannot be exchanged or traded and exists only for display. The lifecycle of each user is short, as user identities are created upon entering and then die when exiting the chatroom. 
