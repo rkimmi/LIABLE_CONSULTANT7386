@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import request from 'superagent'
+import _ from 'lodash'
 
 import usernameData from './username.json'
-
 import { getUsers } from '../actions/users'
 
 class User extends React.Component {
@@ -32,11 +32,9 @@ class User extends React.Component {
     }
 
     makeUsername() {
-        const firstWord = usernameData.first[Math.floor(Math.random() * usernameData.first.length)]
-        const secondWord = usernameData.second[Math.floor(Math.random() * usernameData.second.length)]
-        const min = 1000
-        const max = 10000
-        const numeric = Number([Math.floor(Math.random() * (max - min) + min)])
+        const firstWord = _.sample(usernameData.first)
+        const secondWord = _.sample(usernameData.second)
+        const numeric = Number(_.random(1000, 10000))
         const concatenate = firstWord + '_' + secondWord + numeric
         this.setState({
             username: concatenate
