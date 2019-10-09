@@ -1,6 +1,6 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "description": "React Redux using express",
   "main": "server/index.js",
   "scripts": {
@@ -24,11 +24,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "nodemon": "^1.17.3",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "sqlite3": "^3.1.9",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
   },
@@ -37,7 +32,12 @@
     "express": "^4.16.2",
     "knex": "^0.14.4",
     "lodash": "^4.17.10",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "sqlite3": "^3.1.9",
     "superagent": "^3.8.2"
   }
 }
