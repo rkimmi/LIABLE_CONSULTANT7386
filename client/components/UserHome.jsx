@@ -17,7 +17,7 @@ function handleSubmit(e, username, value) {
     .end()
 }
 
-function User() {
+function UserHome() {
   const [value, setValue] = useState('')
   const [username, setUser] = useState('')
 
@@ -54,4 +54,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(User)
+export default connect(mapStateToProps)(UserHome)

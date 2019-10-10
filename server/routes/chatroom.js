@@ -13,7 +13,7 @@ router.use(bodyParser.json())
 router.get('/', (req, res) => {
   db.getUsers()
     .then((users) => {
-      res.send({users})
+      res.send({ users })
     })
     .catch(err => {
       res.status(500).send(err.message)
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    db.addUser(req.body)
+  db.addUser(req.body)
     .then(() => {
       res.status(202).end()
     })

@@ -1,10 +1,12 @@
 import React from 'react'
 
-import User from './User'
+import UserHome from './UserHome'
+import Chatroom from './Chatroom'
 
 const App = () => (
   <div className='app-container'>
-    <User />
+    <UserHome />
+    <Chatroom />
   </div>
 )
 
