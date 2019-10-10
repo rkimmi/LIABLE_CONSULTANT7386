@@ -1,23 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 import request from 'superagent'
 import _ from 'lodash'
 
 import usernameData from './username.json'
-import { getUsers } from '../actions/users'
+// import { getUsers } from '../actions/users'
 
-function handleSubmit(e, username, value) {
-  e.preventDefault()
-  request
-    .post('/api/v1/chatroom')
-    .send({
-      username,
-      value
-    })
-    .end()
-}
-
-function UserHome() {
+const UserHome = (props) => {
   const [value, setValue] = useState('')
   const [username, setUser] = useState('')
 
@@ -33,11 +22,21 @@ function UserHome() {
     }
   })
 
+  const handleSubmit = useCallback(async () => {
+    request
+      .post('/api/v1/chatroom')
+      .send({
+        username,
+        value
+      })
+      .then(props.enterChatroom(true))
+  })
+
   return (
     <div>
       <form>
         <input type='hidden' value={username} />
-        <button type='submit' onClick={(e) => handleSubmit(e, username, value)}>
+        <button type='submit' onClick={handleSubmit}>
           Enter chatroom
             </button>
       </form>
