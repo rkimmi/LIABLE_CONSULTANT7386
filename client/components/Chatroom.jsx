@@ -5,6 +5,7 @@ import _ from 'lodash'
 
 const Chatroom = (props) => {
   const [message, setMsg] = useState('')
+  const [chatHistory, setHistory] = useState([])
   const handleSubmit = (() => {
     request
       .post('/api/v1/messages')
@@ -14,8 +15,17 @@ const Chatroom = (props) => {
       })
       .then(res => {
         console.log(res)
+        getMessages()
       })
-    // send user id
+  })
+
+  const getMessages = (() => {
+    request
+      .get('/api/v1/messages')
+      .then(res => {
+        console.log(res)
+        // setHistory(res)
+      })
   })
 
   return (
