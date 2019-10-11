@@ -5,11 +5,12 @@ import Chatroom from './Chatroom'
 
 const App = () => {
   const [entered, enterChatroom] = useState(false)
+  const [user, enterUser] = useState({ username: '', value: '', id: 0 })
   return (
     <div className='app-container'>
       {entered
-        ? <Chatroom />
-        : <UserHome enterChatroom={enterChatroom} />
+        ? <Chatroom user={user} />
+        : <UserHome enterChatroom={enterChatroom} enterUser={enterUser} />
       }
     </div>
   )

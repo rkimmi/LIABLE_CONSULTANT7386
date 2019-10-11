@@ -3,21 +3,20 @@ import { connect } from 'react-redux'
 import request from 'superagent'
 import _ from 'lodash'
 
-import usernameData from './username.json'
+import usrData from './username.json'
 // import { getUsers } from '../actions/users'
 
 const UserHome = (props) => {
   const [value, setValue] = useState('')
   const [username, setUser] = useState('')
 
-
   useEffect(function createUser() {
     if (username === '' && value === '') {
-      const firstWord = _.sample(usernameData.first)
-      const secondWord = _.sample(usernameData.second)
-      const numeric = Number(_.random(1000, 10000))
-      const user = firstWord + '_' + secondWord + numeric
-      setUser(user)
+      const adj = _.sample(usrData.first)
+      const noun = _.sample(usrData.second)
+      const num = Number(_.random(1000, 10000))
+      const name = adj + '_' + noun + num
+      setUser(name)
       const val = Number(_.random(1, 10))
       setValue(val)
     }
@@ -30,17 +29,20 @@ const UserHome = (props) => {
         username,
         value
       })
-      .then(props.enterChatroom(true))
+      .then(res => {
+        let newUser = { username, value, id: res.id }
+        props.enterChatroom(true)
+        props.enterUser(newUser)
+      })
+    // send user id
   })
 
   return (
     <div>
-      <form>
-        <input type='hidden' value={username} />
-        <button type='submit' onClick={handleSubmit}>
-          Enter chatroom
-            </button>
-      </form>
+      <input type='hidden' value={username} />
+      <button type='submit' onClick={handleSubmit}>
+        Enter chatroom
+      </button>
       <h1>{username}</h1>
       <h1>{value}</h1>
     </div>
