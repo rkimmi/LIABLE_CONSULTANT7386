@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import request from 'superagent'
 import _ from 'lodash'
@@ -9,6 +9,7 @@ import usernameData from './username.json'
 const UserHome = (props) => {
   const [value, setValue] = useState('')
   const [username, setUser] = useState('')
+
 
   useEffect(function createUser() {
     if (username === '' && value === '') {
@@ -22,7 +23,7 @@ const UserHome = (props) => {
     }
   })
 
-  const handleSubmit = useCallback(async () => {
+  const handleSubmit = (() => {
     request
       .post('/api/v1/chatroom')
       .send({
