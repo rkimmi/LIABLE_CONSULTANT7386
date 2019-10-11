@@ -24,13 +24,13 @@ const UserHome = (props) => {
 
   const handleSubmit = (() => {
     request
-      .post('/api/v1/chatroom')
+      .post('/api/v1/users')
       .send({
         username,
         value
       })
       .then(res => {
-        let newUser = { username, value, id: res.id }
+        let newUser = { username, value, id: res.body.id }
         props.enterChatroom(true)
         props.enterUser(newUser)
       })

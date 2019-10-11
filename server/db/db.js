@@ -4,7 +4,9 @@ const connection = require('knex')(config)
 
 module.exports = {
   getUsers,
-  addUser
+  addUser,
+  getMsgs,
+  sendMsg
 }
 
 function getUsers() { // rename, gets everything
@@ -26,3 +28,19 @@ function addUser(userData) {
     })
 }
 
+function getMsgs() { // rename, gets everything
+  const conn = connection
+  return conn('messages')
+    .join('users', 'users.id', 'messages.user_id')
+    .select()
+}
+
+function sendMsg(message, usrId) {
+  const conn = connection
+  return conn('messages')
+    .insert({
+      user_id: usrId,
+      message: message,
+      timestamp: Date.now()
+    })
+}
