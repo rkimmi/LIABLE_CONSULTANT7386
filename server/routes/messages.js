@@ -11,8 +11,8 @@ router.use(bodyParser.json())
 
 router.get('/', (req, res) => {
   db.getMsgs()
-    .then((users) => {
-      res.send({ users })
+    .then((messages) => {
+      res.send({ messages })
     })
     .catch(err => {
       res.status(500).send(err.message)
@@ -22,7 +22,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   db.sendMsg(req.body)
     .then((id) => {
-      console.log(id)
       res.status(202).end()
     })
     .catch(() => {
@@ -31,3 +30,5 @@ router.post('/', (req, res) => {
       })
     })
 })
+
+

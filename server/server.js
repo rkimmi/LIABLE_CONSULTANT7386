@@ -2,9 +2,9 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 
+
 const users = require('./routes/users')
 const messages = require('./routes/messages')
-
 
 const server = express()
 

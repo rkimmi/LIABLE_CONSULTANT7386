@@ -35,12 +35,12 @@ function getMsgs() { // rename, gets everything
     .select()
 }
 
-function sendMsg(message, usrId) {
+function sendMsg(req) {
   const conn = connection
   return conn('messages')
     .insert({
-      user_id: usrId,
-      message: message,
+      user_id: req.id,
+      message: req.message,
       timestamp: Date.now()
     })
 }
