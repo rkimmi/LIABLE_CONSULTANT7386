@@ -4,8 +4,9 @@ import UserHome from './UserHome'
 import Chatroom from './Chatroom'
 
 const App = () => {
-  const [entered, enterChatroom] = useState(false)
+  const [entered, enterChatroom] = useState(localStorage.getItem('user'))
   const [user, enterUser] = useState({ username: '', value: '', id: 0 })
+
   return (
     <div className='app-container'>
       {entered

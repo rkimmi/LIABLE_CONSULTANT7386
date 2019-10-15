@@ -27,16 +27,23 @@ const Chatroom = (props) => {
 
   const handleSubmit = (() => {
     socket.emit('chat message', { message, id: props.user.id }, handleReceive)
+    setMsg('')
   })
 
   const handleReceive = ((info) => {
     setHistory(chatHistory.concat(message), () => console.log(chatHistory))
   })
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit()
+    }
+  }
+
   return (
     <div className="chatroom-container">
-      {/* welcome to the chatroom
-        <div>{props.user.username}</div> */}
+      welcome to the chatroom
+        <div>{props.user.username}</div>
       <div className="chatroom-outer">
         <div className="chatroom-inner">{chatHistory}</div>
         <div className="chatbox">
@@ -44,6 +51,8 @@ const Chatroom = (props) => {
             onChange={(e) => setMsg(e.target.value)}
             required={true}
             className="input"
+            onKeyPress={handleKeyPress}
+            value={message}
           />
           <Button variant="contained" className={classes.sendBtn} onClick={handleSubmit}>
             Send
