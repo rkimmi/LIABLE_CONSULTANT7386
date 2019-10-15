@@ -10,7 +10,7 @@
     "seed": "yarn knex seed:run",
     "debug": "nodemon index"
   },
-  "author": "Julia",
+  "author": "Kimmi",
   "license": "ISC",
   "babel": {
     "presets": [
@@ -31,6 +31,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.5.1",
     "babel-preset-es2015": "^6.24.1",
     "body-parser": "^1.18.2",
     "dotenv": "^6.0.0",
