@@ -4,8 +4,16 @@ import UserHome from './UserHome'
 import Chatroom from './Chatroom'
 
 const App = () => {
-  const [entered, enterChatroom] = useState(localStorage.getItem('user'))
+  const [entered, enterChatroom] = useState(false)
   const [user, enterUser] = useState({ username: '', value: '', id: 0 })
+
+  useEffect(function checkUser() {
+    let localUser = JSON.parse(localStorage.getItem('user'))
+    if (localUser && user.id !== localUser.id) {
+      enterChatroom(true)
+      enterUser(localUser)
+    }
+  })
 
   return (
     <div className='app-container'>

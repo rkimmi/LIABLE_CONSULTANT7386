@@ -43,7 +43,7 @@ const Chatroom = (props) => {
   return (
     <div className="chatroom-container">
       welcome to the chatroom
-        <div>{props.user.username}</div>
+      <div>{props.user.username}</div>
       <div className="chatroom-outer">
         <div className="chatroom-inner">{chatHistory}</div>
         <div className="chatbox">

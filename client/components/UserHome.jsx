@@ -33,7 +33,7 @@ const UserHome = (props) => {
         let newUser = { username, value, id: res.body.id }
         props.enterChatroom(true)
         props.enterUser(newUser)
-        localStorage.setItem('user', newUser)
+        localStorage.setItem('user', JSON.stringify(newUser))
       })
     // send user id
   })
