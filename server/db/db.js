@@ -36,6 +36,8 @@ function getMsgs() {
 }
 
 function sendMsg(req) {
+  console.log(req)
+  console.log(typeof req.timestamp)
   const conn = connection
   return conn('messages')
     .insert({

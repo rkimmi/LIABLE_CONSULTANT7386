@@ -24,9 +24,8 @@ const Chatroom = (props) => {
   const [message, setMsg] = useState('')
   const [chatHistory, setHistory] = useState([])
   const { classes } = props
-
   const handleSubmit = (() => {
-    socket.emit('chat message', { message, id: props.user.id, timestamp: Date.now() }, handleReceive)
+    socket.emit('chat message', { message, id: props.user.id, timestamp: Date.now().toString() }, handleReceive)
   })
 
   const handleReceive = (() => {
