@@ -26,12 +26,18 @@ const Chatroom = (props) => {
   const { classes } = props
 
   const handleSubmit = (() => {
-    socket.emit('chat message', { message, id: props.user.id }, handleReceive)
-    setMsg('')
+    socket.emit('chat message', { message, id: props.user.id, timestamp: Date.now() }, handleReceive)
   })
 
-  const handleReceive = ((info) => {
-    setHistory(chatHistory.concat(message), () => console.log(chatHistory))
+  const handleReceive = (() => {
+    const messageData = {
+      message,
+      userId: props.user.id,
+      username: props.user.username,
+      timestamp
+    }
+    setMsg('')
+    setHistory(chatHistory.push(messageData), () => console.log(chatHistory))
   })
 
   const handleKeyPress = (event) => {

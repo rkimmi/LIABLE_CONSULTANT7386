@@ -16,7 +16,6 @@ io.on('connection', function (socket) {
 
 
 function handleSendMessage(req, cb) {
-  console.log('message being handled ' + req.message)
   db.sendMsg(req)
     .then((id) => {
       cb(id)

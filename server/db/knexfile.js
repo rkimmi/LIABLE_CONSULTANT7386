@@ -29,17 +29,30 @@ const postgresDefaults = Object.assign({
 }, defaults)
 
 module.exports = {
-  development: Object.assign({
+  development: {
+    client: "postgresql",
     connection: {
-      filename: path.join(__dirname, 'dev.sqlite')
+      database: "db",
+      user: "kimmi",
+      password: "admin"
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: "knex_migrations"
+    },
+    seeds: {
+      directory: path.join(__dirname, '../../test/server/db/seeds')
     }
-  }, sqliteDefaults),
+  },
 
   test: Object.assign({
     connection: {
       filename: ':memory:'
     }
-  }, sqliteDefaults),
+  }, postgresDefaults),
 
   staging: Object.assign({
     connection: {
@@ -56,3 +69,19 @@ module.exports = {
     }
   }, postgresDefaults)
 }
+
+// development: {
+//   client: "postgresql",
+//   connection: {
+//     database: "yourprojectname",
+//     user: "yourprojectname",
+//     password: "example"
+//   },
+//   pool: {
+//     min: 2,
+//     max: 10
+//   },
+//   migrations: {
+//     tableName: "knex_migrations"
+//   }
+// },

@@ -28,7 +28,7 @@ function addUser(userData) {
     })
 }
 
-function getMsgs() { // rename, gets everything
+function getMsgs() {
   const conn = connection
   return conn('messages')
     .join('users', 'users.id', 'messages.user_id')
@@ -41,6 +41,9 @@ function sendMsg(req) {
     .insert({
       user_id: req.id,
       message: req.message,
-      timestamp: Date.now()
-    })
+      timestamp: req.timestamp
+    }, ['id', 'timestamp', 'message'])
+  // ^ .insert(data, [returning]) not returning
+  // .returning(['timestamp', 'message']) 
+  // returning not compatible with sqlite3
 }
