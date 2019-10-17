@@ -23,21 +23,35 @@ const styles = theme => ({
 const Chatroom = (props) => {
   const [message, setMsg] = useState('')
   const [chatHistory, setHistory] = useState([])
+
   const { classes } = props
   const handleSubmit = (() => {
-    socket.emit('chat message', { message, id: props.user.id, timestamp: Date.now().toString() }, handleReceive)
+    socket.emit('chat message', { message, id: props.user.id }, handleReceive)
   })
 
-  const handleReceive = (() => {
+  const handleReceive = ((res) => {
     const messageData = {
       message,
+      // change to received ids + username?
       userId: props.user.id,
       username: props.user.username,
-      timestamp
+      timestamp: res[0].timestamp
     }
     setMsg('')
-    setHistory(chatHistory.push(messageData), () => console.log(chatHistory))
+    let newHistory = getArrObjCopy(chatHistory)
+    newHistory.push(messageData)
+    setHistory(newHistory)
   })
+
+  const getArrObjCopy = ((array) => {
+    let newArray = []
+    array.forEach(item => {
+      let object = Object.assign({}, item)
+      newArray.push(object)
+    })
+    return newArray
+  })
+
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
@@ -50,7 +64,16 @@ const Chatroom = (props) => {
       welcome to the chatroom
       <div>{props.user.username}</div>
       <div className="chatroom-outer">
-        <div className="chatroom-inner">{chatHistory}</div>
+        <div className="chatroom-inner">
+          {chatHistory.map(chat => {
+            return (
+              <div key={chat.timestamp} className="chat-item">
+                <div className="user">{chat.username}</div>
+                <div className="message">{chat.message}</div>
+              </div>
+            )
+          })}
+        </div>
         <div className="chatbox">
           <Input
             onChange={(e) => setMsg(e.target.value)}

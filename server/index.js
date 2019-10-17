@@ -16,7 +16,6 @@ io.on('connection', function (socket) {
 
 
 function handleSendMessage(req, cb) {
-  console.log(typeof req.timestamp)
   db.sendMsg(req)
     .then((id) => {
       cb(id)

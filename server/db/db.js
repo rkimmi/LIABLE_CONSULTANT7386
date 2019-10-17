@@ -36,16 +36,15 @@ function getMsgs() {
 }
 
 function sendMsg(req) {
-  console.log(req)
-  console.log(typeof req.timestamp)
   const conn = connection
   return conn('messages')
     .insert({
       user_id: req.id,
       message: req.message,
-      timestamp: req.timestamp
-    }, ['id', 'timestamp', 'message'])
-  // ^ .insert(data, [returning]) not returning
-  // .returning(['timestamp', 'message']) 
+      timestamp: Date.now().toString()
+    })
+    // , ['id', 'timestamp', 'message']
+    // ^ .insert(data, [returning]) not returning
+    .returning(['timestamp', 'message', 'id'])
   // returning not compatible with sqlite3
 }
