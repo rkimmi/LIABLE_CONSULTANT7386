@@ -37,7 +37,7 @@
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "express": "^4.16.2",
-    "knex": "^0.14.4",
+    "knex": "^0.19.5",
     "lodash": "^4.17.10",
     "pg": "^7.12.1",
     "postgresql": "0.0.1",
