@@ -12,7 +12,13 @@ io.on('connection', function (socket) {
     console.log('user disconnected')
   })
   socket.on('chat message', handleSendMessage)
+
+  socket.on('error', function (err) {
+    console.log('received error from client:', socket.id)
+    console.log(err)
+  })
 })
+
 
 
 function handleSendMessage(req, cb) {

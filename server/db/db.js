@@ -23,9 +23,7 @@ function addUser(userData) {
       username: userData.username,
       value: userData.value,
       // icon: req.body.icon
-    }).then((id) => {
-      return id[0]
-    })
+    }, ['*'])
 }
 
 function getMsgs() {

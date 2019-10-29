@@ -44,3 +44,21 @@ body {
 .input {
   width: 85%;
 }
+
+.chat-item {
+  display: flex;
+  margin-top: 5px;
+}
+
+.message {
+  background-color: pink;
+  border-radius: 4px;
+  padding: 4px;
+  margin-left: 5px;
+  max-width: 50%;
+  color: #fa3a3a;
+}
+
+.user {
+  padding-top: 4px;
+}

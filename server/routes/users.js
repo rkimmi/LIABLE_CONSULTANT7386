@@ -22,8 +22,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   db.addUser(req.body)
-    .then((id) => {
-      res.send({ id })
+    .then((data) => {
+      res.send({ data })
       res.status(202).end()
     })
     .catch(() => {

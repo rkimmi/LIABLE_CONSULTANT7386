@@ -11,6 +11,7 @@ const App = () => {
     let localUser = JSON.parse(localStorage.getItem('user'))
     if (localUser && user.id !== localUser.id) {
       enterChatroom(true)
+      console.log(localUser.id)
       enterUser(localUser)
     }
   })

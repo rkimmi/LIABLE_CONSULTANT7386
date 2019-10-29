@@ -30,12 +30,12 @@ const UserHome = (props) => {
         value
       })
       .then(res => {
-        let newUser = { username, value, id: res.body.id }
+        let body = res.body.data[0]
+        let newUser = { username: body.username, value: body.value, id: body.id }
         props.enterChatroom(true)
         props.enterUser(newUser)
         localStorage.setItem('user', JSON.stringify(newUser))
       })
-    // send user id
   })
 
   return (
