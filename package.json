@@ -36,7 +36,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "knex": "^0.14.4",
     "lodash": "^4.17.10",
     "pg": "^7.12.1",
